@@ -7,6 +7,11 @@ it('stores an image in Cypress cloud', () => {
   // and store it with the recording of this test
   // on Cypress cloud
   cy.readFile('hello.png', 'base64').then((base64) => {
-    cy.wrap(Cypress.$(`<img src="data:image/png;base64,${base64}" />`))
+    cy.document().then((doc) => {
+      Cypress.$(
+        `<img id="temp-image" src="data:image/png;base64,${base64}" />`,
+      ).appendTo(doc.body)
+    })
+    cy.get('#temp-image').screenshot('hello').invoke('remove')
   })
 })
