@@ -12,6 +12,8 @@ it('stores an image in Cypress cloud', () => {
         `<img id="temp-image" src="data:image/png;base64,${base64}" />`,
       ).appendTo(doc.body)
     })
-    cy.get('#temp-image').screenshot('hello').invoke('remove')
+    cy.get('#temp-image')
+      .screenshot('hello', { overwrite: true })
+      .invoke('remove')
   })
 })

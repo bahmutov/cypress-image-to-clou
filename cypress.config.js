@@ -6,8 +6,15 @@ module.exports = defineConfig({
     supportFile: false,
     fixturesFolder: false,
     setupNodeEvents(on, config) {
-      // implement node event listeners here
-      // and load any plugins that require the Node environment
+      // https://on.cypress.io/after-screenshot-api
+      on('after:screenshot', (details) => {
+        console.log('details')
+        console.log(details)
+        if (details.name === 'spec2-hello') {
+          console.log('uploading hello.png image instead')
+          return { path: 'hello.png' }
+        }
+      })
     },
-  }
+  },
 })
