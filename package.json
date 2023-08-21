@@ -1,7 +1,8 @@
 {
   "name": "cypress-image-to-cloud",
   "version": "1.0.0",
-  "description": "",
+  "description": "Upload your own images to Cypress Cloud during recorded test runs",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
