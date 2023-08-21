@@ -6,6 +6,9 @@ module.exports = defineConfig({
     // baseUrl, etc
     supportFile: false,
     fixturesFolder: false,
+    video: false,
+    viewportHeight: 1000,
+    viewportWidth: 1200,
     setupNodeEvents(on, config) {
       // https://on.cypress.io/after-screenshot-api
       on('after:screenshot', (details) => {

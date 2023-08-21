@@ -13,6 +13,7 @@ it('stores an image in Cypress cloud', () => {
       ).appendTo(doc.body)
     })
     cy.get('#temp-image')
+      .should('be.visible')
       .screenshot('hello', { overwrite: true })
       .invoke('remove')
   })
